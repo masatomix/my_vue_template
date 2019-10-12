@@ -158,7 +158,7 @@ https://actyway.wordpress.com/2019/01/25/vscode-prettier-configuration/
 ```console
 $ npm run lint
 
-> my_vue_template@0.1.0 lint /Users/masatomix/git/my_vue_template
+> my_vue_template@0.1.0 lint /Users/xx/git/my_vue_template
 > vue-cli-service lint
 
 The following files have been auto-fixed:
@@ -176,6 +176,92 @@ The following files have been auto-fixed:
  DONE  All lint errors auto-fixed.
 $ 
 ```
+
+
+## Vuetifyを入れた手順
+
+https://vuetifyjs.com/ja/getting-started/quick-start を参考に。ひとつひとつ
+
+
+```console
+$ vue add vuetify
+
+📦  Installing vue-cli-plugin-vuetify...
+
++ vue-cli-plugin-vuetify@1.0.1
+added 4 packages from 7 contributors and audited 24382 packages in 23.664s
+found 0 vulnerabilities
+
+✔  Successfully installed plugin: vue-cli-plugin-vuetify
+
+? Choose a preset: 
+❯ Default (recommended) 
+  Prototype (rapid development) 
+  Configure (advanced) 
+
+added 7 packages from 5 contributors in 17.058s
+⠋  Running completion hooks...
+> my_vue_template@0.1.0 lint /Users/xx/git/my_vue_template
+> vue-cli-service lint
+
+The following files have been auto-fixed:
+
+  src/App.vue
+  src/components/HelloWorld.vue
+  src/main.js
+  src/plugins/vuetify.js
+  src/views/Home.vue
+  vue.config.js
+
+ DONE  All lint errors auto-fixed.
+⚓  Running completion hooks...
+
+✔  Successfully invoked generator for plugin: vue-cli-plugin-vuetify
+   The following files have been updated / added:
+
+     src/assets/logo.svg
+     src/plugins/vuetify.js
+     vue.config.js
+     README.md
+     package-lock.json
+     package.json
+     public/index.html
+     src/App.vue
+     src/components/HelloWorld.vue
+     src/main.js
+     src/views/Home.vue
+
+   You should review these changes with git diff and commit them.
+
+$
+```
+
+
+
+```console
+$ npm install @mdi/font -D
+
++ @mdi/font@4.5.95
+added 1 package from 1 contributor and audited 26553 packages in 13.394s
+found 0 vulnerabilities
+$ 
+
+src/plugins/vuetify.js を追記
+import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loader 追記
+```
+
+アイコン対応(なんだかマテリアルなアイコンがでない。)
+http://nullpoint.hatenablog.com/entry/2019/08/24/154218
+
+```
+$ npm install material-design-icons-iconfont -D
+
+src/plugins/vuetify.js も追記
+import 'material-design-icons-iconfont/dist/material-design-icons.css' // Ensure you are using css-loader
+```
+
+
+
 
 
 
