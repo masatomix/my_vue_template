@@ -262,6 +262,12 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css' // Ensure
 
 
 
+## Firebase インストール、Vuex追加機能 インストール
+
+```console
+$ npm install --save firebase vuex-persistedstate
+```
+
 
 
 
