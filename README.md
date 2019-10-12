@@ -118,38 +118,64 @@ VSCode上からは、とりあえず下記の機能拡張を入れてみた。
 
 $ cat ~/Library/Application\ Support/Code/User/settings.json
 {
-    "editor.renderControlCharacters": true,
-    "editor.fontSize": 14,
-    "workbench.colorTheme": "Visual Studio Dark",
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "[vue]": {
-        "editor.defaultFormatter": "octref.vetur"
-    },
-    "editor.minimap.enabled": false,
-    "prettier.singleQuote": true,
-    "prettier.semi": false,
-    "eslint.autoFixOnSave": true,
-    "eslint.validate": [
-      {
-        "language": "vue",
-        "autoFix": true
-      }
-    ],
+  "editor.renderControlCharacters": true,
+  "editor.fontSize": 14,
+  "workbench.colorTheme": "Visual Studio Dark",
+  "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[vue]": {
+      "editor.defaultFormatter": "octref.vetur"
+  },
+  "editor.minimap.enabled": false,
+  "prettier.singleQuote": true,
+  "prettier.semi": false,
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    {
+      "language": "vue",
+      "autoFix": true
+    }
+  ],
 
-    "vetur.format.defaultFormatter.js": "none",
+  "vetur.format.defaultFormatter.js": "none",
+  "prettier.trailingComma": "all",
 }
 
 参考: https://qiita.com/fukasawah/items/cfff8957f3956850dc7e
+https://actyway.wordpress.com/2019/01/25/vscode-prettier-configuration/
 
 
 これで、*.vueファイル群は保存時に自動にESLintでフォーマットされ(シングルクォート、セミコロンナシ)。
 *.jsファイル群は、cmd shift F で手動フォーマットして運用出来そう。
+コマンドでやった場合と、同じ結果が得られていると思われる。
 
+ちなみに eslint コマンドは、 ``npm run lint`` で実行出来るので、コミット前にコレやる、がイイかな。。
+
+```console
+$ npm run lint
+
+> my_vue_template@0.1.0 lint /Users/masatomix/git/my_vue_template
+> vue-cli-service lint
+
+The following files have been auto-fixed:
+
+  src/App.vue
+  src/components/HelloWorld.vue
+  src/main.js
+  src/router.js
+  src/store.js
+  src/views/Home.vue
+  .eslintrc.js
+  babel.config.js
+  postcss.config.js
+
+ DONE  All lint errors auto-fixed.
+$ 
+```
 
 
 
