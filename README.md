@@ -1,6 +1,6 @@
 # my_vue_template
 
-
+## 初回のプロジェクト作成
 
 ```console
 $ vue create my_vue_template
@@ -71,44 +71,84 @@ $
 ```
 
 
-### 実行
+## フォーマッタの設定
 
-```console
- $ cd my_vue_template
- $ npm run serve
+./.eslintrc.js を下記の通りに。
 
-
- DONE  Compiled successfully in 5238ms  
- 
-
-  App running at:
-  - Local:   http://localhost:8080/
-  - Network: http://192.168.10.xxx:8080/
-
-  Note that the development build is not optimized.
-  To create a production build, run npm run build.
+```console:./.eslintrc.js
+module.exports = {
+  root: true,
+  env: {
+    node: true
+  },
+  extends: ["plugin:vue/essential", "@vue/prettier",'plugin:prettier/recommended',],
+  plugins: ['vue'],
+  rules: {
+    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
+    'prettier/prettier': [
+      'error',
+      {
+        semi:false,
+        singleQuote: true,
+        trailingComma: 'all',
+      },
+    ],
+  },
+  parserOptions: {
+    parser: "babel-eslint"
+  }
+};
 ```
 
+これでコマンドからは、トップディレクトリで
+
+$ ./node_modules/.bin/eslint --fix ./src/views/*.vue
+$ ./node_modules/.bin/eslint --fix ./src/*.js
+
+などとやれば、セミコロンナシのシングルクォートにフォーマットされるぽい。
+VSCode上からは、とりあえず下記の機能拡張を入れてみた。
+
+- ESLint
+- Prettier - Code formatter
+- Vetur
+- Japanese Language Pack for Visual Studio Code
+
+んで、設定ファイルはこんな感じで。
+
+$ cat ~/Library/Application\ Support/Code/User/settings.json
+{
+    "editor.renderControlCharacters": true,
+    "editor.fontSize": 14,
+    "workbench.colorTheme": "Visual Studio Dark",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "octref.vetur"
+    },
+    "editor.minimap.enabled": false,
+    "prettier.singleQuote": true,
+    "prettier.semi": false,
+    "eslint.autoFixOnSave": true,
+    "eslint.validate": [
+      {
+        "language": "vue",
+        "autoFix": true
+      }
+    ],
+
+    "vetur.format.defaultFormatter.js": "none",
+}
+
+参考: https://qiita.com/fukasawah/items/cfff8957f3956850dc7e
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+これで、*.vueファイル群は保存時に自動にESLintでフォーマットされ(シングルクォート、セミコロンナシ)。
+*.jsファイル群は、cmd shift F で手動フォーマットして運用出来そう。
 
 
 
