@@ -269,6 +269,94 @@ $ npm install --save firebase vuex-persistedstate
 ```
 
 
+## Functions追加
+
+
+```
+$ pwd
+/Users/xxx/git/my_vue_template
+$ firebase init functions
+
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/xxx/git/my_vue_template
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+=== Project Setup
+
+First, let's associate this project directory with a Firebase project.
+You can create multiple project aliases by running firebase use --add, 
+but for now we'll just set up a default project.
+
+? Please select an option: Use an existing project
+? Select a default Firebase project for this directory: fb2samples (fb2samples)
+i  Using project fb2samples (fb2samples)
+
+=== Functions Setup
+
+A functions directory will be created in your project with a Node.js
+package pre-configured. Functions can be deployed with firebase deploy.
+
+? What language would you like to use to write Cloud Functions? TypeScript
+? Do you want to use TSLint to catch probable bugs and enforce style? Yes
+✔  Wrote functions/package.json
+✔  Wrote functions/tslint.json
+✔  Wrote functions/tsconfig.json
+✔  Wrote functions/src/index.ts
+✔  Wrote functions/.gitignore
+? Do you want to install dependencies with npm now? Yes
+
+> protobufjs@6.8.8 postinstall /Users/xxx/git/my_vue_template/functions/node_modules/protobufjs
+> node scripts/postinstall
+
+npm notice created a lockfile as package-lock.json. You should commit this file.
+added 268 packages from 186 contributors and audited 717 packages in 23.632s
+found 0 vulnerabilities
+
+
+i  Writing configuration info to firebase.json...
+i  Writing project information to .firebaserc...
+
+✔  Firebase initialization complete!
+$ 
+```
+
+
+```
+$ cd functions
+$ cat src/index.ts 
+import * as functions from 'firebase-functions';
+
+// // Start writing Firebase Functions
+// // https://firebase.google.com/docs/functions/typescript
+//
+// export const helloWorld = functions.https.onRequest((request, response) => {
+//  response.send("Hello from Firebase!");
+// });
+$
+ 
+$ npm run deploy
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## Project setup
