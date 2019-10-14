@@ -422,3 +422,9 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+## 改定履歴
+
+- 初版作成
+- 0.9.0 Prettier(Formatter),vuetify,Firebase,Functions,CORS,TSC/TSLintなどの設定。 
