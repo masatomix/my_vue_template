@@ -347,11 +347,10 @@ $
 $ npm run deploy
 ```
 
+## CORS追加
 
-
-
-
-
+$ npm install cors --save
+$ npm i --save-dev npm install @types/cors
 
 
 
