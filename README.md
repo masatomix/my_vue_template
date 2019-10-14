@@ -103,8 +103,10 @@ module.exports = {
 
 これでコマンドからは、トップディレクトリで
 
+```console
 $ ./node_modules/.bin/eslint --fix ./src/views/*.vue
 $ ./node_modules/.bin/eslint --fix ./src/*.js
+```
 
 などとやれば、セミコロンナシのシングルクォートにフォーマットされるぽい。
 VSCode上からは、とりあえず下記の機能拡張を入れてみた。
@@ -116,6 +118,7 @@ VSCode上からは、とりあえず下記の機能拡張を入れてみた。
 
 んで、設定ファイルはこんな感じで。
 
+```console
 $ cat ~/Library/Application\ Support/Code/User/settings.json
 {
   "editor.renderControlCharacters": true,
@@ -144,6 +147,7 @@ $ cat ~/Library/Application\ Support/Code/User/settings.json
   "vetur.format.defaultFormatter.js": "none",
   "prettier.trailingComma": "all",
 }
+```
 
 参考: https://qiita.com/fukasawah/items/cfff8957f3956850dc7e
 https://actyway.wordpress.com/2019/01/25/vscode-prettier-configuration/
@@ -349,9 +353,10 @@ $ npm run deploy
 
 ## CORS追加
 
+```console
 $ npm install cors --save
 $ npm i --save-dev npm install @types/cors
-
+```
 
 ## TSLint インストール
 
