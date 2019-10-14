@@ -353,7 +353,39 @@ $ npm install cors --save
 $ npm i --save-dev npm install @types/cors
 
 
+## TSLint インストール
 
+Vue側でTSをトランスパイラするためのツール導入(TSLintも)
+Functionsでも使用するUtilityを作成中で、それがTypeScriptで作成している。
+Vueから呼び出すには、jsへトランスパイルする必要がある。そのツールのインストール。
+
+```console
+$ pwd
+/Users/xxx/git/my_vue_template
+$ npm install --save-dev tslint typescript
+
++ tslint@5.20.0
++ typescript@3.6.4
+added 5 packages from 3 contributors and audited 26884 packages in 13.3s
+found 0 vulnerabilities
+
+$ cat package.json 
+{
+  ...
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "tsc": "tsc --esModuleInterop ",    ← 追加した
+    "lint": "vue-cli-service lint"
+  },
+... 
+$
+```
+
+とりあえず、``./node_modules/.bin/tslint --fix --project tsconfig.json ``で、vue側もFunctionsがわもlintされそう。
+もしくはVSCode上でも、Prettierをフォーマッタとして適用できそう(デフォルトをそれに設定する)
+
+参考: https://qiita.com/tapioca24/items/ec942f4c29ccd6465fab
 
 
 
