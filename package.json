@@ -10,7 +10,7 @@
     "serve-p": "vue-cli-service serve --mode production"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-js": "^3.6.4",
     "eslint-loader": "^3.0.3",
     "firebase": "^7.2.0",
